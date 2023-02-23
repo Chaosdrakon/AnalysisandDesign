@@ -1,0 +1,69 @@
+#include <iostream>
+#include<string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+	cout << "Welcome to the SNHU Course Planner\n";
+	while (true) //While statement needed to ensure the user can select multiple times
+	{
+		int userinput; //allows user to select menu options.
+		string username; //allows user to enter courses.
+		userinput = 0; //Sets int.
+
+		//Menu creation.
+		cout << "\t 1.Load Data Structure.\n";
+		cout << "\t 2.Print Course List.\n";
+		cout << "\t 3.Print Course.\n";
+		cout << "\t 9.Exit.\n";
+		cout << "What would you like to do ?";
+		cin >> userinput;
+		cout << "\n";
+
+		//Loading course data.
+		if (userinput == 1){
+			cout << "Course planner data loaded.\n";
+		}
+
+		//Printing out course menu.
+		else if (userinput == 2){
+			cout << "Here is sample schedule:\n\n";
+			cout << "CSCI100, Introduction to Computer Science\n";
+			cout << "CSCI101, Introduction to Programming in C++\n";
+			cout << "CSCI200, Data Structures\n";
+			cout << "CSCI301, Advance Programming in C++\n";
+			cout << "CSCI300, Introduction to Algorithms\n";
+			cout << "CSCI350, Operating Systems\n";
+			cout << "CSCI400, Large Software Development\n";
+			cout << "MATH201, Discrete Mathematics\n\n";
+		}
+
+		//Outputting a specific course.
+		else if (userinput == 3){
+			cout << "What course do you want to know about?";
+			cin >> username;
+			cout << "\n";
+			transform(username.begin(), username.end(), username.begin(), ::tolower);
+			if (username == "csci400"){
+				cout << "CSCI400,Large Software Development\nPrerequisites:CSCI301, CSCI350\n\n";
+			}
+		}
+
+		//Exiting the program.
+		else if (userinput == 9) {
+			cout << "Thank you for using the SNHU Course Planner!\n";
+				break;
+		}
+
+		//If an unavailable number is selected.
+		else
+		{
+			cout << userinput;
+			cout << " is not a valid option\n";
+		}
+	}
+
+	return 0;
+}
